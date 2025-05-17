@@ -21,7 +21,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, imageUrl, imageHint, projectUrl, tags }: ProjectCardProps) {
   return (
-    <Card className="group flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-lg">
+    <Card className="group flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out rounded-lg bg-card text-card-foreground">
       <CardHeader className="p-0">
         <div className="aspect-[4/3] overflow-hidden">
           <Image
@@ -35,12 +35,15 @@ export default function ProjectCard({ title, description, imageUrl, imageHint, p
         </div>
       </CardHeader>
       <CardContent className="p-6 flex-grow">
-        <CardTitle className="text-2xl font-semibold mb-2 font-geist-sans text-primary">{title}</CardTitle>
-        <CardDescription className="text-foreground/80 line-clamp-3">{description}</CardDescription>
+        <CardTitle className="text-2xl font-semibold mb-2 font-montserrat text-primary">{title}</CardTitle>
+        <CardDescription className="text-foreground/80 line-clamp-3 font-opensans">{description}</CardDescription>
         {tags && tags.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map(tag => (
-              <span key={tag} className="text-xs bg-accent/10 text-accent-foreground px-2 py-1 rounded-full border border-accent/30">
+              <span 
+                key={tag} 
+                className="text-xs bg-secondary/70 text-secondary-foreground px-2.5 py-1 rounded-sm font-medium"
+              >
                 {tag}
               </span>
             ))}
@@ -49,7 +52,7 @@ export default function ProjectCard({ title, description, imageUrl, imageHint, p
       </CardContent>
       {projectUrl && (
         <CardFooter className="p-6 pt-0">
-          <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/5">
+          <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 hover:text-primary">
             <a href={projectUrl} target="_blank" rel="noopener noreferrer">
               View Project <ExternalLink className="ml-2 h-4 w-4" />
             </a>

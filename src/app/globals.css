@@ -3,34 +3,34 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-lora), Georgia, 'Times New Roman', serif;
+  font-family: var(--font-open-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, button, input, select, textarea, [class*="font-semibold"], [class*="font-medium"] {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @layer base {
   :root {
-    --background: 60 56% 91%; /* Off-white #F5F5DC */
-    --foreground: 180 25% 25%; /* Dark Slate Gray #2F4F4F */
-    --card: 60 56% 95%; /* Slightly lighter than background for cards */
-    --card-foreground: 180 25% 25%;
-    --popover: 60 56% 95%;
-    --popover-foreground: 180 25% 25%;
-    --primary: 180 25% 25%; /* Dark Slate Gray #2F4F4F */
-    --primary-foreground: 60 56% 97%; /* Brighter Off-white for contrast */
-    --secondary: 60 30% 87%; /* Lighter gray for secondary elements */
-    --secondary-foreground: 180 25% 25%;
-    --muted: 60 30% 89%; /* Muted backgrounds */
-    --muted-foreground: 180 25% 40%; /* Muted text */
-    --accent: 43 90% 38%; /* Muted Gold #B8860B */
-    --accent-foreground: 0 0% 100%; /* White text on gold */
+    --background: 0 0% 100%; /* White #FFFFFF */
+    --foreground: 0 0% 20%; /* Dark Gray #333333 */
+    --card: 0 0% 98%; /* Off-white #FAFAFA */
+    --card-foreground: 0 0% 20%; /* Dark Gray #333333 */
+    --popover: 0 0% 98%; /* Off-white #FAFAFA */
+    --popover-foreground: 0 0% 20%; /* Dark Gray #333333 */
+    --primary: 188 79% 23%; /* Dark Teal #0D5E69 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 90%; /* Light Gray #E6E6E6 */
+    --secondary-foreground: 0 0% 20%; /* Dark Gray #333333 */
+    --muted: 0 0% 95%; /* Very Light Gray #F2F2F2 */
+    --muted-foreground: 0 0% 45%; /* Medium Gray #737373 */
+    --accent: 42 93% 51%; /* Gold/Orange #F3AE0F */
+    --accent-foreground: 0 0% 13%; /* Near Black #212121 */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 180 15% 80%; /* Softer border */
-    --input: 60 50% 93%; /* Input background, slightly off from main bg */
-    --ring: 43 90% 45%; /* Gold for rings */
+    --border: 0 0% 87%; /* Gray Border #DEDEDE */
+    --input: 0 0% 80%; /* Gray Input Border #CCCCCC */
+    --ring: 188 79% 30%; /* Slightly Lighter Primary #107C8B for focus rings */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -39,36 +39,36 @@ h1, h2, h3, h4, h5, h6, button, input, select, textarea, [class*="font-semibold"
     --radius: 0.5rem;
 
     /* Sidebar Variables - Light Theme */
-    --sidebar-background: 60 50% 94%; /* Slightly different light shade */
-    --sidebar-foreground: 180 25% 25%; /* Dark Slate Gray */
-    --sidebar-primary: 43 90% 38%; /* Muted Gold */
-    --sidebar-primary-foreground: 0 0% 100%; /* White */
-    --sidebar-accent: 60 50% 88%; /* Lighter version for hover */
-    --sidebar-accent-foreground: 180 25% 25%; /* Dark Slate Gray */
-    --sidebar-border: 180 15% 80%; /* Consistent with main border */
-    --sidebar-ring: 43 90% 45%; /* Muted Gold */
+    --sidebar-background: 0 0% 98%; /* --card */
+    --sidebar-foreground: 0 0% 20%; /* --card-foreground */
+    --sidebar-primary: 188 79% 23%; /* --primary */
+    --sidebar-primary-foreground: 0 0% 100%; /* --primary-foreground */
+    --sidebar-accent: 42 93% 51%; /* --accent */
+    --sidebar-accent-foreground: 0 0% 13%; /* --accent-foreground */
+    --sidebar-border: 0 0% 87%; /* --border */
+    --sidebar-ring: 188 79% 30%; /* --ring */
   }
 
   .dark {
-    --background: 180 15% 10%; /* Very dark, slightly cyan-tinted gray */
-    --foreground: 60 30% 85%; /* Light, slightly warm gray */
-    --card: 180 15% 13%;
-    --card-foreground: 60 30% 85%;
-    --popover: 180 15% 10%;
-    --popover-foreground: 60 30% 85%;
-    --primary: 43 80% 55%; /* Brighter Gold for primary actions */
-    --primary-foreground: 180 25% 10%; /* Dark text on gold */
-    --secondary: 180 15% 20%;
-    --secondary-foreground: 60 30% 85%;
-    --muted: 180 15% 20%;
-    --muted-foreground: 60 30% 60%;
-    --accent: 43 90% 48%; /* Muted gold, slightly brighter for dark mode */
-    --accent-foreground: 180 25% 10%; /* Dark text for contrast */
+    --background: 0 0% 13%; /* Dark Gray #212121 */
+    --foreground: 0 0% 90%; /* Light Gray #E6E6E6 */
+    --card: 0 0% 16%; /* Slightly Lighter Dark Gray #292929 */
+    --card-foreground: 0 0% 90%; /* Light Gray #E6E6E6 */
+    --popover: 0 0% 16%; /* Slightly Lighter Dark Gray #292929 */
+    --popover-foreground: 0 0% 90%; /* Light Gray #E6E6E6 */
+    --primary: 188 70% 45%; /* Lighter Teal #26A1AF */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 25%; /* Medium Dark Gray #404040 */
+    --secondary-foreground: 0 0% 85%; /* Lighter Gray #D9D9D9 */
+    --muted: 0 0% 20%; /* Darker Muted Gray #333333 */
+    --muted-foreground: 0 0% 55%; /* Medium Light Gray #8C8C8C */
+    --accent: 42 85% 60%; /* Brighter Gold/Orange #F5BE3D */
+    --accent-foreground: 0 0% 13%; /* Near Black #212121 */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 180 15% 25%;
-    --input: 180 15% 25%;
-    --ring: 43 80% 60%; /* Brighter gold for rings */
+    --border: 0 0% 30%; /* Darker Border #4D4D4D */
+    --input: 0 0% 30%; /* Darker Border #4D4D4D for input borders */
+    --ring: 188 70% 50%; /* Lighter Teal #2BB0BF for focus rings */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -76,14 +76,14 @@ h1, h2, h3, h4, h5, h6, button, input, select, textarea, [class*="font-semibold"
     --chart-5: 340 75% 55%;
 
     /* Sidebar Variables - Dark Theme */
-    --sidebar-background: 180 15% 13%; /* Consistent with card background */
-    --sidebar-foreground: 60 30% 85%; /* Consistent with card foreground */
-    --sidebar-primary: 43 80% 55%; /* Brighter Gold */
-    --sidebar-primary-foreground: 180 25% 10%; /* Dark text on gold */
-    --sidebar-accent: 180 15% 18%; /* Slightly lighter dark for hover */
-    --sidebar-accent-foreground: 60 30% 85%;
-    --sidebar-border: 180 15% 25%; /* Consistent with main border */
-    --sidebar-ring: 43 80% 60%; /* Brighter Gold */
+    --sidebar-background: 0 0% 16%; /* --card (dark) */
+    --sidebar-foreground: 0 0% 90%; /* --card-foreground (dark) */
+    --sidebar-primary: 188 70% 45%; /* --primary (dark) */
+    --sidebar-primary-foreground: 0 0% 100%; /* --primary-foreground (dark) */
+    --sidebar-accent: 42 85% 60%; /* --accent (dark) */
+    --sidebar-accent-foreground: 0 0% 13%; /* --accent-foreground (dark) */
+    --sidebar-border: 0 0% 30%; /* --border (dark) */
+    --sidebar-ring: 188 70% 50%; /* --ring (dark) */
   }
 }
 

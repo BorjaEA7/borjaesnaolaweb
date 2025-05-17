@@ -1,26 +1,21 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { Lora } from 'next/font/google';
+import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { siteConfig } from '@/config/site';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const openSans = Open_Sans({
   subsets: ['latin'],
+  variable: '--font-open-sans',
+  weight: ['300', '400', '600', '700'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const montserrat = Montserrat({
   subsets: ['latin'],
-});
-
-const lora = Lora({
-  variable: '--font-lora',
-  subsets: ['latin'],
-  weight: ['400', '700'],
+  variable: '--font-montserrat',
+  weight: ['400', '500', '600', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} antialiased font-lora`}>
+      <body className={`${openSans.variable} ${montserrat.variable} antialiased font-opensans bg-background text-foreground`}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">

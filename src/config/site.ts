@@ -12,11 +12,13 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   name: "Zaguan",
-  description: "A modern portfolio showcasing creative works.",
+  description: "Estudio de diseño gráfico y desarrollo web.",
   navItems: [
-    { label: "Home", href: "/" },
-    { label: "Portfolio", href: "/#portfolio" },
-    { label: "About", href: "/about", disabled: true }, // Placeholder, can be enabled later
-    { label: "Contact", href: "/contact", disabled: true }, // Placeholder
+    // { label: "Home", href: "/" }, // Zaguanestudio.com uses logo for home link
+    { label: "Proyectos", href: "/#portfolio" },
+    { label: "Servicios", href: "/servicios", disabled: true }, // Mark as disabled until page is created
+    { label: "Nosotros", href: "/nosotros", disabled: true }, // Mark as disabled until page is created
+    { label: "Blog", href: "/blog", disabled: true }, // Mark as disabled until page is created
+    { label: "Contacto", href: "/contacto", disabled: true }, // Mark as disabled until page is created
   ],
 };
