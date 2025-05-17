@@ -1,55 +1,44 @@
-import ProjectCard from './project-card';
 
-const portfolioItems = [
-  {
-    title: "E-commerce Platform Redesign",
-    description: "A complete overhaul of a legacy e-commerce system, focusing on UX, performance, and modern design aesthetics. Implemented a new headless CMS and Next.js frontend.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "online shopping",
-    projectUrl: "#",
-    tags: ["UI/UX", "Next.js", "E-commerce", "Headless CMS"],
-  },
-  {
-    title: "Mobile Banking App",
-    description: "Designed and developed a secure and intuitive mobile banking application with features like P2P payments, bill pay, and financial tracking.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "mobile finance",
-    projectUrl: "#",
-    tags: ["Mobile App", "Fintech", "Security", "React Native"],
-  },
-  {
-    title: "SaaS Dashboard UI Kit",
-    description: "Created a comprehensive UI kit for a SaaS product, including a variety of components, charts, and templates to streamline development.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "data analytics",
-    projectUrl: "#",
-    tags: ["UI Kit", "SaaS", "Design System", "Figma"],
-  },
-  {
-    title: "Branding for Startup Co.",
-    description: "Developed a full brand identity, including logo, color palette, typography, and marketing materials for an emerging tech startup.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "brand identity",
-    tags: ["Branding", "Graphic Design", "Marketing"],
-  },
-   {
-    title: "Interactive Art Installation",
-    description: "Conceptualized and built an interactive digital art installation for a public gallery, using projection mapping and sensor technology.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "digital art",
-    projectUrl: "#",
-    tags: ["Creative Tech", "Art", "Interactive"],
-  },
-  {
-    title: "Non-Profit Website",
-    description: "Designed and launched a new website for a local non-profit organization, improving accessibility and online donations.",
-    imageUrl: "https://placehold.co/600x450.png",
-    imageHint: "community support",
-    tags: ["Web Design", "Non-Profit", "Accessibility"],
-  },
-];
+"use client";
+
+import React, { useState, useMemo } from 'react';
+import ProjectCard from './project-card';
+import ProjectDetailModal from './project-detail-modal';
+import { portfolioItems, type PortfolioItem } from '@/data/portfolio-items';
+import { Button } from '@/components/ui/button';
+import { Tag } from 'lucide-react';
 
 export default function PortfolioSection() {
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const allTags = useMemo(() => {
+    const tagsSet = new Set<string>();
+    portfolioItems.forEach(item => {
+      item.tags?.forEach(tag => tagsSet.add(tag));
+    });
+    return Array.from(tagsSet).sort();
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (!activeTag) {
+      return portfolioItems;
+    }
+    return portfolioItems.filter(item => item.tags?.includes(activeTag));
+  }, [activeTag]);
+
+  const handleProjectClick = (project: PortfolioItem) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Delay clearing selectedProject to allow modal to animate out
+    setTimeout(() => setSelectedProject(null), 300); 
+  };
+
   return (
     <section id="portfolio" className="py-16 sm:py-24">
       <div className="text-center mb-12">
@@ -58,19 +47,54 @@ export default function PortfolioSection() {
           Discover a selection of projects that showcase our passion for creativity and technical excellence.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {portfolioItems.map((item) => (
-          <ProjectCard
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            imageUrl={item.imageUrl}
-            imageHint={item.imageHint}
-            projectUrl={item.projectUrl}
-            tags={item.tags}
-          />
-        ))}
-      </div>
+
+      {allTags.length > 0 && (
+        <div className="mb-10 flex flex-wrap justify-center items-center gap-2 sm:gap-3 px-4">
+           <Button
+            variant={!activeTag ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => setActiveTag(null)}
+            className={`transition-all duration-200 ${!activeTag ? 'bg-primary text-primary-foreground' : 'border-primary text-primary hover:bg-primary/5'}`}
+          >
+            All Projects
+          </Button>
+          {allTags.map(tag => (
+            <Button
+              key={tag}
+              variant={activeTag === tag ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setActiveTag(tag)}
+              className={`transition-all duration-200 ${activeTag === tag ? 'bg-primary text-primary-foreground' : 'border-primary text-primary hover:bg-primary/5'}`}
+            >
+              <Tag className="mr-2 h-4 w-4 opacity-80" /> {tag}
+            </Button>
+          ))}
+        </div>
+      )}
+
+      {filteredProjects.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((item) => (
+            <ProjectCard
+              key={item.id}
+              project={item}
+              onProjectClick={handleProjectClick}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-xl text-muted-foreground">No projects found for the selected tag.</p>
+        </div>
+      )}
+
+      <ProjectDetailModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }
+
+    
