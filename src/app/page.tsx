@@ -1,6 +1,8 @@
+
 import Hero from "@/components/layout/hero";
 import PortfolioSection from "@/components/portfolio/portfolio-section";
 import AboutMeSection from "@/components/about/about-me-section";
+import ServicesSection from "@/components/services/services-section";
 
 export default function Home() {
   return (
@@ -8,7 +10,8 @@ export default function Home() {
       <Hero />
       <PortfolioSection />
       <AboutMeSection />
-      {/* You can add more sections here like Services, etc. */}
+      <ServicesSection />
+      {/* You can add more sections here */}
     </div>
   );
 }

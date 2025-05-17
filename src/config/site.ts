@@ -1,3 +1,4 @@
+
 export type NavItem = {
   label: string;
   href: string;
@@ -16,7 +17,7 @@ export const siteConfig: SiteConfig = {
   navItems: [
     // { label: "Home", href: "/" }, // Zaguanestudio.com uses logo for home link
     { label: "Proyectos", href: "/#portfolio" },
-    { label: "Servicios", href: "/servicios", disabled: true }, // Mark as disabled until page is created
+    { label: "Servicios", href: "/servicios" }, 
     { label: "Nosotros", href: "/nosotros", disabled: true }, // Mark as disabled until page is created
     { label: "Blog", href: "/blog", disabled: true }, // Mark as disabled until page is created
     { label: "Contacto", href: "/contacto", disabled: true }, // Mark as disabled until page is created
