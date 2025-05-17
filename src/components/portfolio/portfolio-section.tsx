@@ -40,9 +40,9 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="portfolio" className="py-16 sm:py-24">
+    <section id="portfolio" className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primary font-geist-sans">Our Recent Work</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary font-montserrat">Our Recent Work</h2>
         <p className="mt-4 text-lg text-foreground/70 max-w-xl mx-auto">
           Discover a selection of projects that showcase our passion for creativity and technical excellence.
         </p>
@@ -96,5 +96,3 @@ export default function PortfolioSection() {
     </section>
   );
 }
-
-    

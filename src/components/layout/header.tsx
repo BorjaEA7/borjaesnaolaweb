@@ -19,8 +19,8 @@ export default function Header() {
     <Link
       href={item.href}
       className={cn(
-        "text-sm font-medium transition-colors hover:text-primary/80",
-        pathname === item.href ? "text-primary" : "text-foreground/70",
+        "text-sm font-medium transition-colors",
+        pathname === item.href ? "text-primary font-semibold" : "text-primary/80 hover:text-primary",
         item.disabled && "cursor-not-allowed opacity-50",
         className
       )}
@@ -37,7 +37,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <BriefcaseBusiness className="h-7 w-7 text-primary" />
-          <span className="text-xl font-semibold font-geist-sans text-primary">{siteConfig.name}</span>
+          <span className="text-xl font-semibold font-montserrat text-primary">{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
@@ -58,7 +58,7 @@ export default function Header() {
               <div className="flex flex-col space-y-6 p-6">
                 <Link href="/" className="flex items-center gap-2 mb-4" onClick={() => setIsSheetOpen(false)}>
                   <BriefcaseBusiness className="h-7 w-7 text-primary" />
-                  <span className="text-xl font-semibold font-geist-sans text-primary">{siteConfig.name}</span>
+                  <span className="text-xl font-semibold font-montserrat text-primary">{siteConfig.name}</span>
                 </Link>
                 {siteConfig.navItems.map((item) => (
                   <NavLink 
