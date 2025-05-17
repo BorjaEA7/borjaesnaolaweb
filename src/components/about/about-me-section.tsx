@@ -3,7 +3,9 @@
 
 import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
-import { Quote } from 'lucide-react';
+import { Quote, Linkedin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const AboutMeSection: React.FC = () => {
   const [animatedQuote, setAnimatedQuote] = useState('');
@@ -31,6 +33,7 @@ const AboutMeSection: React.FC = () => {
 
     return () => {
       if (quoteRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(quoteRef.current);
       }
     };
@@ -55,19 +58,24 @@ const AboutMeSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5 lg:col-span-4">
-            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto md:max-w-none rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto md:max-w-none rounded-lg overflow-hidden shadow-xl group">
               <Image
                 src="https://placehold.co/400x500.png"
-                alt="Your Name - Professional Portrait"
+                alt="[Tu Nombre] - Professional Portrait"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 400px"
                 className="object-cover"
                 data-ai-hint="portrait person"
               />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+              <div className="absolute top-0 left-0 p-4 md:p-6 text-white">
+                <h3 className="text-2xl lg:text-3xl font-semibold font-montserrat">[Tu Nombre Completo]</h3>
+                <p className="text-md lg:text-lg font-opensans text-gray-200">[Tu Puesto de Trabajo]</p>
+              </div>
             </div>
           </div>
           <div className="md:col-span-7 lg:col-span-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6 font-geist-sans">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6 font-montserrat">
               Sobre Mí
             </h2>
             <p className="text-lg text-foreground/80 mb-6">
@@ -82,7 +90,7 @@ const AboutMeSection: React.FC = () => {
               diseño para resolver problemas y comunicar mensajes de manera efectiva.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 mb-10">
               <div className="p-6 border-l-4 border-accent bg-secondary/30 rounded-r-lg shadow-sm">
                 <Quote className="h-8 w-8 text-accent mb-2 opacity-70" />
                 <p ref={quoteRef} className="text-xl italic text-foreground/90 font-medium min-h-[3em]">
@@ -97,6 +105,13 @@ const AboutMeSection: React.FC = () => {
                 </p>
               </blockquote>
             </div>
+            
+            <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/5">
+              <Link href="https://www.linkedin.com/in/borja-esnaola/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 h-5 w-5" />
+                Descubre más sobre mí y conecta conmigo.
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
