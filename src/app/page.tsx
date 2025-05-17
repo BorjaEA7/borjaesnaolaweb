@@ -7,7 +7,7 @@ import ContactSection from "@/components/contact/contact-section";
 
 export default function Home() {
   return (
-    <div className="space-y-12 md:space-y-20 lg:space-y-28">
+    <div className="space-y-10 md:space-y-16 lg:space-y-20">
       <Hero />
       <PortfolioSection />
       <AboutMeSection />

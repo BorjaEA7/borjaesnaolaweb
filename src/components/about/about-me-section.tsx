@@ -3,9 +3,10 @@
 
 import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
-import { Quote, Linkedin } from 'lucide-react';
+import { Quote, Linkedin, Palette, Code, TerminalSquare, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const AboutMeSection: React.FC = () => {
   const [animatedQuote, setAnimatedQuote] = useState('');
@@ -23,7 +24,7 @@ const AboutMeSection: React.FC = () => {
       },
       {
         rootMargin: '0px',
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.1,
       }
     );
 
@@ -48,15 +49,38 @@ const AboutMeSection: React.FC = () => {
         if (index === fullQuote.length -1) {
           clearInterval(intervalId);
         }
-      }, 50); // Adjust typing speed here (milliseconds)
+      }, 50); 
       return () => clearInterval(intervalId);
     }
   }, [startAnimation, fullQuote]);
 
+  const skills = [
+    {
+      icon: Palette,
+      title: "Diseño UI/UX",
+      description: "Creación de interfaces intuitivas y atractivas centradas en la experiencia del usuario.",
+    },
+    {
+      icon: Code,
+      title: "Desarrollo Frontend",
+      description: "Transformación de diseños en código interactivo y responsivo con las últimas tecnologías web.",
+    },
+    {
+      icon: TerminalSquare,
+      title: "Desarrollo Backend",
+      description: "Construcción de la lógica de servidor robusta y escalable para potenciar aplicaciones web.",
+    },
+    {
+      icon: BarChart3,
+      title: "Estrategia Digital",
+      description: "Asesoramiento y planificación para alcanzar objetivos de negocio a través de soluciones digitales.",
+    }
+  ];
+
   return (
     <section id="about-me" className="py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start"> {/* Changed items-center to items-start */}
           <div className="md:col-span-5 lg:col-span-4">
             <div className="relative aspect-[4/5] w-full max-w-sm mx-auto md:max-w-none rounded-lg overflow-hidden shadow-xl group">
               <Image
@@ -112,6 +136,28 @@ const AboutMeSection: React.FC = () => {
                 Descubre más sobre mí y conecta conmigo.
               </Link>
             </Button>
+          </div>
+        </div>
+
+        {/* Highlighted Skills Section */}
+        <div className="mt-16 md:mt-20">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-primary mb-8 md:mb-12 text-center font-montserrat">
+            Mis Competencias Destacadas
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {skills.map((skill, index) => (
+              <Card key={index} className="bg-card text-card-foreground shadow-sm border border-border/70">
+                <CardHeader className="items-center text-center pt-6 pb-3">
+                  <skill.icon className="h-10 w-10 text-accent mb-3" />
+                  <CardTitle className="text-lg font-semibold font-montserrat text-primary/90">{skill.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center pb-6 px-4">
+                  <p className="text-sm text-foreground/75">
+                    {skill.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

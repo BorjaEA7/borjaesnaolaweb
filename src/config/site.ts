@@ -15,11 +15,9 @@ export const siteConfig: SiteConfig = {
   name: "Zaguan",
   description: "Estudio de diseño gráfico y desarrollo web.",
   navItems: [
-    // { label: "Home", href: "/" }, // Zaguanestudio.com uses logo for home link
     { label: "Proyectos", href: "/#portfolio" },
-    { label: "Servicios", href: "/servicios" }, 
-    { label: "Nosotros", href: "/#about-me" }, // Updated to point to the section on homepage
-    { label: "Blog", href: "/blog", disabled: true }, // Mark as disabled until page is created
-    { label: "Contacto", href: "/contacto" }, 
+    { label: "Servicios", href: "/#services" }, 
+    { label: "Sobre mí", href: "/#about-me" },
+    { label: "Contacto", href: "/#contact" }, 
   ],
 };
