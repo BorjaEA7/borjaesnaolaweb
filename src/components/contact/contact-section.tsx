@@ -21,16 +21,16 @@ export default function ContactSection() {
           <div className="space-y-4 pt-4">
             <div>
               <h3 className="text-md font-semibold text-primary mb-1">CORREO ELECTRÓNICO</h3>
-              <Link href="mailto:info@zaguanestudio.com" className="text-lg text-foreground hover:text-primary transition-colors flex items-center">
+              <Link href="mailto:borja.esnaola@innuba.com" className="text-lg text-foreground hover:text-primary transition-colors flex items-center">
                 <Mail className="mr-2 h-5 w-5" />
-                info@zaguanestudio.com
+                borja.esnaola@innuba.com
               </Link>
             </div>
             <div>
               <h3 className="text-md font-semibold text-primary mb-1">TELÉFONO</h3>
-              <Link href="tel:+34688660143" className="text-lg text-foreground hover:text-primary transition-colors flex items-center">
+              <Link href="tel:+34636161084" className="text-lg text-foreground hover:text-primary transition-colors flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
-                &#40;+34&#41; 688 660 143
+                &#40;+34&#41; 636 161 084
               </Link>
             </div>
           </div>

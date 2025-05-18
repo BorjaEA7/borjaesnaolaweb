@@ -2,10 +2,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig, type NavItem } from '@/config/site';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, BriefcaseBusiness } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
@@ -36,8 +37,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <BriefcaseBusiness className="h-7 w-7 text-primary" />
-          <span className="text-xl font-semibold font-montserrat text-primary">{siteConfig.name}</span>
+          <Image
+            src="/logo.png"
+            alt="Borja Esnaola Logo"
+            width={162} // Aspect ratio 650/60 = 10.83. If height is 15, width = 15 * 10.83 = 162.45
+            height={15} // Adjusted for a reasonable header height
+            priority
+            className="h-auto" // Maintain aspect ratio
+          />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
@@ -57,15 +64,21 @@ export default function Header() {
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col space-y-6 p-6">
                 <Link href="/" className="flex items-center gap-2 mb-4" onClick={() => setIsSheetOpen(false)}>
-                  <BriefcaseBusiness className="h-7 w-7 text-primary" />
-                  <span className="text-xl font-semibold font-montserrat text-primary">{siteConfig.name}</span>
+                  <Image
+                    src="/logo.png"
+                    alt="Borja Esnaola Logo"
+                    width={162}
+                    height={15}
+                    priority
+                    className="h-auto"
+                  />
                 </Link>
                 {siteConfig.navItems.map((item) => (
-                  <NavLink 
-                    key={item.href} 
-                    item={item} 
+                  <NavLink
+                    key={item.href}
+                    item={item}
                     className="text-lg"
-                    onClick={() => setIsSheetOpen(false)} 
+                    onClick={() => setIsSheetOpen(false)}
                   />
                 ))}
               </div>

@@ -12,12 +12,12 @@ export type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  name: "Zaguan",
+  name: "Borja Esnaola",
   description: "Estudio de diseño gráfico y desarrollo web.",
   navItems: [
     { label: "Proyectos", href: "/#portfolio" },
-    { label: "Servicios", href: "/#services" }, 
+    { label: "Servicios", href: "/#services" },
     { label: "Sobre mí", href: "/#about-me" },
-    { label: "Contacto", href: "/#contact" }, 
+    { label: "Contacto", href: "/#contact" },
   ],
 };
